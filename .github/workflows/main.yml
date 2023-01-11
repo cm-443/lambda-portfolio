@@ -1,4 +1,9 @@
-- uses: actions/checkout@v2
+name: upload website
+#on: [pull_request, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
 
 - name: Configure AWS credentials
   uses: aws-actions/configure-aws-credentials@v1
