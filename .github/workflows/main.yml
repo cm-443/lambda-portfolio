@@ -32,7 +32,7 @@ jobs:
     
     - name: Package Lambda function
       run: |
-        cd my-lambda-function-directory
+        cd cm-443/lambda-test
         zip -r9 ${GITHUB_WORKSPACE}/$LAMBDA_FUNCTION_NAME.zip .
     
     - name: Deploy to S3
