@@ -30,14 +30,14 @@ jobs:
         #cp -r venv package/
         zip -r main.zip package
       
-    - uses: shallwefootball/s3-upload-action@master
-      name: Upload S3
-      id: S3
-      with:
-        aws_key_id: ${{ secrets.AWS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-        aws_bucket: 's3://lambda-functions-cm443/'
-        source_dir: 'static'
+    - name: Configure AWS credentials
+      run: |
+        echo "[default]\naws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}\naws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" > ~/.aws/credentials
+    - name: Upload file to S3
+      run: |
+        pip install boto3
+        python -c "import boto3; s3 = boto3.client('s3'); s3.upload_file('main.zip', 'lambda-functions-cm443', 'main.zip')"
+
 
 #     - name: Deploy to S3
 #       env:
