@@ -24,10 +24,10 @@ jobs:
     - name: Zip Python script and dependencies
       run: |
         mkdir package
-        cp -r script.py package/
+        cp -r main.py package/
         cp -r requirements.txt package/
         cp -r venv package/
-        zip -r script.zip package
+        zip -r main.zip package
       
     - name: Install AWS CLI
       run: |
@@ -35,7 +35,7 @@ jobs:
         pip3 install awscli
 
     - name: Deploy to S3
-      run: aws s3 cp script.zip s3://my-bucket/script.zip
+      run: aws s3 cp main.zip s3://lambda-functions-cm443/script.zip
 
 
 # name: Deploy Lambda function to S3
