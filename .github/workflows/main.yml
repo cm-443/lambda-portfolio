@@ -1,5 +1,8 @@
 name: Deploy to S3
 
+env:
+  ${{ secrets.ENV_FILE }}
+
 on:
   push:
     branches:
