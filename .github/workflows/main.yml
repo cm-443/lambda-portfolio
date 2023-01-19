@@ -51,7 +51,7 @@ jobs:
 
 
     - name: Deploy to S3
-      run: aws s3 cp main.zip s3://lambda-functions-cm443/main.zip
+      run: aws s3 cp main.zip s3://lambda-functions-cm443
 
 
 # name: Deploy Lambda function to S3
