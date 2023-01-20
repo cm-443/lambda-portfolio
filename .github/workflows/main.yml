@@ -64,7 +64,4 @@ jobs:
 #   GITHUB_WORKSPACE: cm-443/lambda-test/
 
 
-    
-#     - name: Deploy to S3
-#       run: |
-#         aws s3 cp ${GITHUB_WORKSPACE}/$LAMBDA_FUNCTION_NAME.zip s3://$S3_BUCKET/
+
