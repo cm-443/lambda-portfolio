@@ -47,7 +47,7 @@ jobs:
     - name: Install AWS CLI
       run: sudo apt-get install -y awscli
     - name: Configure AWS credentials
-      run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region us-east-2
     - name: Upload file to S3
       run: aws s3 cp main.zip s3://lambda-functions-cm443/main.zip
 
