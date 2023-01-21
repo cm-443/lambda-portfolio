@@ -22,13 +22,21 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
+#     - name: Zip Python script and dependencies
+#       run: |
+#         mkdir package
+#         cp -r main.py package/
+#         cp -r requirements.txt package/
+#         #cp -r venv package/
+#         zip -r main.zip package
+        
     - name: Zip Python script and dependencies
       run: |
+        pip freeze > requirements.txt
         mkdir package
         cp -r main.py package/
         cp -r requirements.txt package/
-        #cp -r venv package/
-        zip -r main.zip package
+        zip -r main.zip package        
         
       
     - name: Install AWS CLI
