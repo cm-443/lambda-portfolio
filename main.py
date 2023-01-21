@@ -1,8 +1,13 @@
-import unittest
+import tensorflow as tf
 def lambda_handler(event, context):
-    def fun(x):
-        return x + 1
+    print("TensorFlow version:", tf.__version__)
 
-    class MyTest(unittest.TestCase):
-        def test(self):
-            self.assertEqual(fun(3), 4)
+
+# import unittest
+# def lambda_handler(event, context):
+#     def fun(x):
+#         return x + 1
+
+#     class MyTest(unittest.TestCase):
+#         def test(self):
+#             self.assertEqual(fun(3), 4)
