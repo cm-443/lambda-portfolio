@@ -33,6 +33,7 @@ jobs:
     - name: Zip Python script and dependencies
       run: |
         pip freeze > requirements.txt
+        pip install -r requirements.txt
         mkdir package
         cp -r main.py package/
         cp -r requirements.txt package/
