@@ -1,16 +1,8 @@
-import boto3
+import pandas as pd
 
 def lambda_handler(event, context):
-   dynamodb_resource = boto3.resource("portfolio-db")
-   table = dynamodb_resource.Table("table")
-   response = table.put_item(
-       Item={
-           "contactName": event["contactName"],
-           "contactEmail": event["contactEmail"],
-           "contactSubject": event["contactSubject"],
-           "contactMessage": event["contactMessage"],
-       }
-   )
-
-#html
-#var desc = $("#description-input").val();
+    data = {'name': ['John', 'Jane', 'Mike'],
+            'age': [30, 25, 35]}
+    df = pd.DataFrame(data)
+    df.to_csv('example.csv', index=False)
+    print(df)
