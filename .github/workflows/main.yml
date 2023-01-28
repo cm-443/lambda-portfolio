@@ -29,24 +29,24 @@ jobs:
     #     #cp -r venv package/
     #     zip -r main.zip package
         
-    # - name: Zip Python script and dependencies
-    #   run: |
-    #     pip freeze > requirements.txt
-    #     pip install -r requirements.txt
-    #     mkdir package
-    #     cp -r main.py package/
-    #     cp -r requirements.txt package/
-    #     zip -r main.zip package        
-        
-
     - name: Zip Python script and dependencies
       run: |
         pip freeze > requirements.txt
-        python -m venv venv
-        source venv/bin/activate
-        pip install --no-compile -r requirements.txt
-        cp -r main.py venv/
-        zip -r main.zip venv    
+        pip install -r requirements.txt
+        mkdir package
+        cp -r main.py package/
+        cp -r requirements.txt package/
+        zip -r main.zip package        
+        
+
+#     - name: Zip Python script and dependencies
+#       run: |
+#         pip freeze > requirements.txt
+#         python -m venv venv
+#         source venv/bin/activate
+#         pip install --no-compile -r requirements.txt
+#         cp -r main.py venv/
+#         zip -r main.zip venv    
       
     - name: Install AWS CLI
       run: sudo apt-get install -y awscli
